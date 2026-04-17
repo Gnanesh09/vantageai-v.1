@@ -1,29 +1,22 @@
-import type { Metadata } from 'next'
-import { Inter } from 'next/font/google'
-import './globals.css'
-import Header from '@/components/Header'
-import CategoryStrip from '@/components/CategoryStrip'
-
-const inter = Inter({ subsets: ['latin'], variable: '--font-inter' })
+import type { Metadata } from "next";
+import "./globals.css";
+import Navbar from "@/components/Navbar";
+import { CartProvider } from "@/lib/cart";
 
 export const metadata: Metadata = {
-  title: 'SwiftCart | Premier E-Commerce',
-  description: '10-minute grocery delivery app',
-}
+  title: "SwiftCart",
+  description: "10-minute grocery delivery",
+};
 
-export default function RootLayout({
-  children,
-}: {
-  children: React.ReactNode
-}) {
+export default function RootLayout({ children }: { children: React.ReactNode }) {
   return (
     <html lang="en">
-      <body className={`${inter.variable} font-sans bg-background text-foreground`}>
-        <Header />
-        <main className="pb-20">
-          {children}
-        </main>
+      <body>
+        <CartProvider>
+          <Navbar />
+          <main className="pt-24 md:pt-20 pb-12">{children}</main>
+        </CartProvider>
       </body>
     </html>
-  )
+  );
 }
