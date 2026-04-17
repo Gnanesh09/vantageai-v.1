@@ -20,3 +20,27 @@ env/
 # Secrets/local files
 .env
 *.env
+
+# Dependencies
+node_modules/
+.pnp
+.pnp.js
+
+# Next.js build output
+.next/
+out/
+build/
+
+# Python
+.venv/
+__pycache__/
+*.pyc
+*.pyo
+
+# Env files
+.env.local
+.env.production
+
+# OS
+.DS_Store
+Thumbs.db
