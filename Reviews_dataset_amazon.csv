@@ -1,0 +1,231 @@
+product_slug,reviewer_id,reviewer_name,raw_text,star_rating,image_url,is_verified_purchase
+lays-classic-salted,user_001,Priya S A,Taste acha hai but chips toot gaye the.,3,https://m.media-amazon.com/images/I/71KaKBF-LRL.jpg,TRUE
+lays-classic-salted,user_002,Rahul K B,"Fresh and crispy, loved it.",5,https://m.media-amazon.com/images/I/71dvUYzk9CL._SY250_.jpg,TRUE
+lays-classic-salted,user_003,Neha  Patel,Too salty for me.,2,https://m.media-amazon.com/images/I/71oeB6QLuqL._SY250_.jpg,FALSE
+lays-classic-salted,user_004,Amit P,"Okay snack, nothing special.",3,https://m.media-amazon.com/images/I/71rmgnwgYSL._SY250_.jpg,FALSE
+lays-classic-salted,user_005,Sneha R,Perfect with chai.,5,https://m.media-amazon.com/images/I/71La4B0DmPL._SY250_.jpg,TRUE
+haldirams-aloo-bhujia,user_006,Karan V,"Bahut tasty hai, authentic flavor.",5,https://m.media-amazon.com/images/I/71fwhrBDmTL._SY250_.jpg ,TRUE
+haldirams-aloo-bhujia,user_007,Anita M,Too spicy for kids.,3,https://m.media-amazon.com/images/I/71XZPb0ZqPL._SY250_.jpg ,TRUE
+haldirams-aloo-bhujia,user_008,Arjun D.,Crunchy and fresh.,4,https://m.media-amazon.com/images/I/61Zfx+mnpNL._SY250_.jpg,TRUE
+haldirams-aloo-bhujia,user_009,Meera J,Oil zyada laga.,2,https://m.media-amazon.com/images/I/D1ZKKpYIrkS._SY250_.jpg,FALSE
+haldirams-aloo-bhujia,user_010,Rohit S,Best namkeen ever!,5,https://m.media-amazon.com/images/I/C1-yM9QDZkS._SY250_.jpg,TRUE
+amul-taaza-toned-milk,user_011,Divya P,"Good quality milk, daily use.",5,https://m.media-amazon.com/images/I/714dNlHgQ7L._SY250_.jpg,TRUE
+amul-taaza-toned-milk,user_012,Vikram N,Sometimes packet leaks.,2,,TRUE
+amul-taaza-toned-milk,user_013,Pooja K,Fresh and affordable.,4,,TRUE
+amul-taaza-toned-milk,user_014,Sahil M,Taste okay hai.,3,,FALSE
+amul-taaza-toned-milk,user_015,Anil R,Not fresh this time.,1,https://m.media-amazon.com/images/I/71lCjXYkZKL._SY250_.jpg,TRUE
+epigamia-greek-yogurt,user_016,Komal S,Creamy and delicious!,5,https://m.media-amazon.com/images/I/718egyGLXGL._SY250_.jpg,TRUE
+epigamia-greek-yogurt,user_017,Deepak G,Too sour for my taste.,3,,FALSE
+epigamia-greek-yogurt,user_018,Nisha V,Healthy and filling.,5,,TRUE
+epigamia-greek-yogurt,user_019,Harsh T,Expensive but good.,4,,TRUE
+epigamia-greek-yogurt,user_020,Sonia L,Texture not great.,2,https://m.media-amazon.com/images/I/714cxF3eiqL.jpg,TRUE
+real-fruit-juice-mango,user_021,Manoj K,Refreshing and tasty.,5,https://m.media-amazon.com/images/I/61NE2OeowmL._SY250_.jpg,TRUE
+real-fruit-juice-mango,user_022,Ritika S,Too sweet.,3,,FALSE
+real-fruit-juice-mango,user_023,Varun P,Feels artificial.,2,,TRUE
+real-fruit-juice-mango,user_024,Geeta M,Good for summer.,4,,TRUE
+real-fruit-juice-mango,user_025,Akash J,Loved the mango flavor.,5,https://m.media-amazon.com/images/I/61VoIIUo4ML._SY250_.jpg ,TRUE
+maggi-2-minute-noodles,user_026,Shreya N,Quick and tasty.,5,https://m.media-amazon.com/images/I/61Hfur3AtvL._SY250_.jpg,TRUE
+maggi-2-minute-noodles,user_027,Nitin D,Masala kam lagta hai.,3,,TRUE
+maggi-2-minute-noodles,user_028,Kavita R,Kids favorite snack.,5,,TRUE
+maggi-2-minute-noodles,user_029,Ramesh S,Too much sodium.,2,,FALSE
+maggi-2-minute-noodles,user_030,Payal T,Classic taste!,5,https://m.media-amazon.com/images/I/71pkXpVO4XL._SY250_.jpg,TRUE
+dove-body-wash,user_031,Abhishek V,Very smooth on skin.,5,https://m.media-amazon.com/images/I/61sxwvDI0AL._SY250_.jpg,TRUE
+dove-body-wash,user_032,Neeraj K,Fragrance mild hai.,4,,TRUE
+dove-body-wash,user_033,Swati P,Not moisturizing enough.,3,,FALSE
+dove-body-wash,user_034,Sunil R,Good for dry skin.,5,,TRUE
+dove-body-wash,user_035,Ritu S,Bottle leaked.,2,https://m.media-amazon.com/images/I/710pyut65HL._SY250_.jpg,TRUE
+dairy-milk-silk,user_036,Kunal M,Very creamy chocolate.,5,https://m.media-amazon.com/images/I/71fhGr2kwRL._SY250_.jpg,TRUE
+dairy-milk-silk,user_037,Asha T,Too sweet.,3,https://m.media-amazon.com/images/I/C1wlQTyJEHS._SY250_.jpg,FALSE
+dairy-milk-silk,user_038,Ajay N,Melts quickly but tasty.,4,https://m.media-amazon.com/images/I/718pHJmZ6LL._SY250_.jpg,TRUE
+dairy-milk-silk,user_039,Preeti K,Small quantity.,2,https://m.media-amazon.com/images/I/71heug5LNBL._SY250_.jpg,TRUE
+dairy-milk-silk,user_040,Rajesh D,Loved it!,5,,TRUE
+lays-classic-salted,user_041,Simran P,Nice crunch.,4,https://m.media-amazon.com/images/I/71G8Q8wgmiL._SY250_.jpg,TRUE
+haldirams-aloo-bhujia,user_042,Hemant S,Quality not consistent.,3,,FALSE
+amul-taaza-toned-milk,user_043,Alok V,Good packaging.,4,,TRUE
+epigamia-greek-yogurt,user_044,Monika R,Loved the flavor.,5,,TRUE
+real-fruit-juice-mango,user_045,Tarun K,Average juice.,3,,FALSE
+maggi-2-minute-noodles,user_046,Rekha J,Too oily.,2,,TRUE
+dove-body-wash,user_047,Suresh P,Skin feels soft.,5,,TRUE
+dairy-milk-silk,user_048,Pallavi M,Not fresh.,1,,TRUE
+haldirams-aloo-bhujia,user_049,Gaurav T,Very crunchy.,4,,TRUE
+lays-classic-salted,user_050,Ananya S,Very tasty.,5,https://m.media-amazon.com/images/I/71McJrPMeWL.jpg,TRUE
+lays-classic-salted,user_051,Aarav G,Opened the packet and honestly felt like I paid for air more than chips. Taste is good but quantity seriously questionable.,3,https://m.media-amazon.com/images/I/81axhXV5MwL.jpg,TRUE
+lays-classic-salted,user_052,Vivan James,"Movie night without these chips feels incomplete, crispy and fresh as always.",5,,TRUE
+lays-classic-salted,user_053,Aditya birla,"Salt itna zyada tha ki paani peena pad gaya baar baar, not my type.",2,,FALSE
+lays-classic-salted,user_054,Arjun G,"Yeah great, half the packet is air, very innovative packaging strategy ??",2,https://m.media-amazon.com/images/I/61hoTsm-ycL.jpg,FALSE
+lays-classic-salted,user_055,Ishaan Y,"Light snack ke liye perfect hai, especially with chai in evening.",5,,TRUE
+haldirams-aloo-bhujia,user_056,Karthik R,"Iska taste bilkul ghar jaisa lagta hai, proper Indian snack vibes.",5,https://m.media-amazon.com/images/I/C1-yM9QDZkS._SY250_.jpg ,TRUE
+haldirams-aloo-bhujia,user_057,Rohan E,"Spice level thoda high hai, bachchon ke liye suitable nahi hai.",3,,TRUE
+haldirams-aloo-bhujia,user_058,Siddharth  H,"Crunchy toh hai but oil ka feel zyada aa raha tha, thoda heavy lagta hai.",3,https://m.media-amazon.com/images/I/71gr36FV58L.jpg,FALSE
+haldirams-aloo-bhujia,user_059,Yash G,"Packet khola toh smell thodi off thi, maybe storage issue?",2,,TRUE
+haldirams-aloo-bhujia,user_060,Devansh R,"Guests aaye the aur sabne poocha kaha se liya, definitely worth it.",5,https://m.media-amazon.com/images/I/71gr36FV58L.jpg,TRUE
+amul-taaza-toned-milk,user_061,Ayaan R,"Daily use ke liye best hai, chai aur coffee dono ke liye consistent taste deta hai.",5,,TRUE
+amul-taaza-toned-milk,user_062,Harsh A,"Ek packet delivery me phata hua tha, baaki sab theek tha but still disappointing.",2,,TRUE
+amul-taaza-toned-milk,user_063,Lakshya B,"Affordable hai aur quality bhi achi hai, value for money.",4,,TRUE
+amul-taaza-toned-milk,user_064,Nikhil,"Kabhi fresh lagta hai kabhi nahi, quality consistency missing hai.",3,,FALSE
+amul-taaza-toned-milk,user_065,Pranav,"Milk se thodi ajeeb smell aa rahi thi, had to throw it away.",1,,TRUE
+epigamia-greek-yogurt,user_066,Reyansh,"Gym ke baad khaya and it actually keeps me full for long time, pretty good.",5,,TRUE
+epigamia-greek-yogurt,user_067,Shaurya,"Texture smooth hai but taste thoda sour side pe hai, sabko pasand nahi aayega.",3,,FALSE
+epigamia-greek-yogurt,user_068,Tanmay,"Healthy option hai aur flavors bhi interesting hai, daily use kar rahi hu.",5,,TRUE
+epigamia-greek-yogurt,user_069,Varun,Price thoda high hai but quality dekh ke samajh aata hai why.,4,,TRUE
+epigamia-greek-yogurt,user_070,Zayan,"Consistency itni thick thi ki spoon khada reh gaya, not sure if that's good or weird.",2,,TRUE
+real-fruit-juice-mango,user_071,Omkar ,"Chilled karke piya aur garmi me kaafi refreshing laga, good purchase.",5,,TRUE
+real-fruit-juice-mango,user_072,rudra,"Too sweet for my liking, natural mango juice jaisa feel nahi aaya.",3,,FALSE
+real-fruit-juice-mango,user_073,Satyam,Mango flavor hai but thoda artificial lagta hai honestly.,2,,TRUE
+real-fruit-juice-mango,user_074,Tejas,"Kids ko kaafi pasand aaya, lunch box me regularly de rahi hu.",4,,TRUE
+real-fruit-juice-mango,user_075,Uday,Healthy bolke bechte hai but sugar content dekh ke doubt hota hai.,3,,TRUE
+maggi-2-minute-noodles,user_076,Aadhya,"Late night hunger ke liye Maggi is still the best solution, quick and tasty.",5,https://m.media-amazon.com/images/I/61NtZJ7KxzL._SY250_.jpg,TRUE
+maggi-2-minute-noodles,user_077,Kavya,"Masala pehle jaisa strong nahi lagta, taste thoda change ho gaya hai.",3,,TRUE
+maggi-2-minute-noodles,user_078,Meera,"Bachpan se favorite hai, abhi bhi wahi comfort food hai.",5,,TRUE
+maggi-2-minute-noodles,user_079,Esha,Healthy toh nahi hai but kabhi kabhi cheat meal ke liye okay hai.,2,https://m.media-amazon.com/images/I/B1VGaTO1UGS._SY250_.jpg,FALSE
+maggi-2-minute-noodles,user_080,Gauri,"Wow 2 minute noodles that actually take 10 minutes, amazing branding.",2,,TRUE
+dove-body-wash,user_081,hema,Skin pe kaafi smooth lagta hai aur dryness kam ho gayi hai.,5,,TRUE
+dove-body-wash,user_082,oviya,"Fragrance mild hai, mujhe thoda strong pasand hota.",3,,FALSE
+dove-body-wash,user_083,marya,Moisturizing acha hai but price thoda premium side pe hai.,4,,TRUE
+dove-body-wash,user_084,james,Dry skin ke liye genuinely helpful product laga.,5,,TRUE
+dove-body-wash,user_085,jhonson,"Bottle ka cap loose tha aur thoda product leak ho gaya, not expected.",2,,TRUE
+dairy-milk-silk,user_086,arman,Itni smooth hai ki ek baar start karo toh rukna mushkil hai.,5,,TRUE
+dairy-milk-silk,user_087,akthar,Sweetness thodi zyada hai but chocolate quality achi hai.,3,,FALSE
+dairy-milk-silk,user_088,devs,"Garmi me melt ho gaya before I could even eat it, still tasted good though.",4,,TRUE
+dairy-milk-silk,user_089,Likith,Price ke hisaab se quantity kaafi kam lagti hai.,2,,TRUE
+dairy-milk-silk,user_090,Dhyan,"Gift ke liye liya tha and it was a safe choice, everyone liked it.",5,,TRUE
+lays-classic-salted,user_091,Gnanesh,"Kuch chips black nikle packet me, quality control improve karna chahiye.",2,,TRUE
+haldirams-aloo-bhujia,user_092,Shiva,"Har baar taste same nahi hota, kabhi perfect kabhi average.",3,,FALSE
+amul-taaza-toned-milk,user_093,Vamshi ,Packaging better ho sakti hai but overall product theek hai.,3,,TRUE
+epigamia-greek-yogurt,user_094,Raj,Flavor interesting tha aur repeat karne ka mann hai.,5,,TRUE
+real-fruit-juice-mango,user_095,Omer,"Average hai, market me aur better options available hai.",3,,FALSE
+maggi-2-minute-noodles,user_096,devis,Kabhi kabhi thoda oily lagta hai but still comfort food hai.,3,,TRUE
+dove-body-wash,user_097,richard,Daily use ke liye acha hai aur skin soft rehti hai.,4,,TRUE
+dairy-milk-silk,user_098,jhonsonn,"Is baar fresh nahi tha, taste thoda off laga.",1,,TRUE
+haldirams-aloo-bhujia,user_099,Manoj,"Chai ke saath perfect combo hai, evening snack sorted.",5,,TRUE
+lays-classic-salted,user_100,Shifi,Simple product hai but jab craving ho toh perfect lagta hai.,5,,TRUE
+lays-classic-salted,user_151,Priya Sharma,"Honestly speaking, packet kholo toh aadha hawa hi milta hai, taste acha hai but quantity pe thoda kaam karo yaar.",3,,TRUE
+lays-classic-salted,user_152,Rahul Verma,"Movie dekhte waqt yeh chips perfect lagte hain, crispy aur fresh the iss baar.",5,,TRUE
+lays-classic-salted,user_153,Anjali Nair,"Taste okay aanu, but packetil kurachu chips mathram undayirunnu, felt cheated.",2,,FALSE
+lays-classic-salted,user_154,Ramesh Gowda,"Chips swalpa jaasti uppu ide, but crunch chennagide, overall okay.",3,,TRUE
+lays-classic-salted,user_155,Karthik Iyer,"Oh wow, paying premium price just to enjoy air inside the packet, amazing experience.",2,,FALSE
+haldirams-aloo-bhujia,user_156,Sneha Patil,"??? ??? ?? ???, ??????? ??? ???? ?????, full paisa vasool.",5,,TRUE
+haldirams-aloo-bhujia,user_157,Amit Singh,"Thoda zyada spicy laga, ghar pe sabko pasand nahi aaya.",3,,TRUE
+haldirams-aloo-bhujia,user_158,Meena Krishnan,Crunchy irundhudhu but konjam oil jasthi feel aayiduchu.,3,,FALSE
+haldirams-aloo-bhujia,user_159,Sunil Yadav,"Packet kholte hi smell thodi ajeeb lagi, not sure storage issue tha kya.",2,https://m.media-amazon.com/images/I/71gr36FV58L.jpg,TRUE
+haldirams-aloo-bhujia,user_160,Vikram Reddy,"Guests ke liye liya tha, sab logon ne appreciate kiya taste.",5,,TRUE
+amul-taaza-toned-milk,user_161,Divya Kulkarni,"Daily chai ke liye use karti hoon, quality consistent milti hai mostly.",5,,TRUE
+amul-taaza-toned-milk,user_162,Ravi Shankar,"Oka packet leak ayindi delivery lo, inka migatha bagane undi.",2,,TRUE
+amul-taaza-toned-milk,user_163,Shreya Banerjee,"Price reasonable hai aur taste bhi theek hai, regular use ke liye fine.",4,,TRUE
+amul-taaza-toned-milk,user_164,Manoj Tiwari,"Kabhi fresh lagta hai kabhi nahi, consistency pe kaam hona chahiye.",3,,FALSE
+amul-taaza-toned-milk,user_165,Suresh Pillai,"Milkinu oru strange smell undayirunnu, use cheyyan pattiyilla.",1,,TRUE
+epigamia-greek-yogurt,user_166,Komal Gupta,"Gym ke baad khane ke liye perfect hai, filling aur tasty dono hai.",5,,TRUE
+epigamia-greek-yogurt,user_167,Arun Menon,"Taste nalla irukku but konjam sour feel aagudhu, ellarkum pudikadhu.",3,,FALSE
+epigamia-greek-yogurt,user_168,Nisha Kapoor,"Healthy option hai aur flavors bhi interesting hain, repeat karungi.",5,,TRUE
+epigamia-greek-yogurt,user_169,Harish Shetty,Swalpa expensive ide but quality nodidre justify agatte.,4,,TRUE
+epigamia-greek-yogurt,user_170,Latha Iyer,"Consistency romba thick irundhudhu, spoon nikkum pola, strange feel.",2,,TRUE
+real-fruit-juice-mango,user_171,Ankit Agarwal,"Garmi me chilled karke piya, kaafi refreshing laga honestly.",5,,TRUE
+real-fruit-juice-mango,user_172,Pooja Deshmukh,"??? ??? ???, natural mango juice ????? ???? ????.",3,,FALSE
+real-fruit-juice-mango,user_173,Rakesh Naidu,Flavor undi kani konchem artificial ga anipinchindi.,2,,TRUE
+real-fruit-juice-mango,user_174,Geeta Joshi,"Kids ko pasand aaya, roz lunch box me dene lagi hu.",4,,TRUE
+real-fruit-juice-mango,user_175,Tarun Bansal,Healthy bolte hain but sugar content dekh ke doubt hota hai.,3,,TRUE
+maggi-2-minute-noodles,user_176,Kavya Nair,"2 minute noodles that magically take 10 minutes, wah kya baat hai.",2,,TRUE
+maggi-2-minute-noodles,user_177,Nitin Sharma,"Late night hunger ke liye best option hai, quick aur tasty.",5,https://m.media-amazon.com/images/I/71GGyyNFXyL.jpg,TRUE
+maggi-2-minute-noodles,user_178,Rekha Devi,"Masala pehle jaisa strong nahi lagta, taste thoda change hua hai.",3,,TRUE
+maggi-2-minute-noodles,user_179,Santosh Patil,"?????????? ?????, ?????? ??? taste ???.",5,https://m.media-amazon.com/images/I/71dy2Q3W96L.jpg,TRUE
+maggi-2-minute-noodles,user_180,Venu Gopal,"Health wise great choice obviously, bas roz mat khao.",2,https://m.media-amazon.com/images/I/71VVa67-sgL.jpg,FALSE
+dove-body-wash,user_181,Ananya Reddy T,Skin pe smooth feel aata hai aur dryness kam ho gayi hai.,5,,TRUE
+dove-body-wash,user_182,Prakash Gowda,"Fragrance swalpa light ide, nanige strong ishta.",3,,FALSE
+dove-body-wash,user_183,Sonali Kulkarni,Moisturizing khup chan aahe pan price jasta vatato.,4,,TRUE
+dove-body-wash,user_184,Rohit Nair,"Dry skininu valare nannayi work cheyyunnu, satisfied.",5,,TRUE
+dove-body-wash,user_185,Megha Sharma,Bottle ka cap loose tha aur thoda product leak ho gaya.,2,,TRUE
+dairy-milk-silk,user_186,Kunal Mehta,Itni smooth chocolate hai ki control karna mushkil ho jata hai.,5,,TRUE
+dairy-milk-silk,user_187,Asha Rani,Sweetness thodi zyada hai but chocolate quality achi hai.,3,,FALSE
+dairy-milk-silk,user_188,Vikash Yadav,Garmi me pura melt ho gaya before I could enjoy it.,4,,TRUE
+dairy-milk-silk,user_189,Pallavi Desai,Price ke hisaab se quantity kam lagti hai honestly.,2,,TRUE
+dairy-milk-silk,user_190,Rajiv Menon,"Gift ke liye liya tha, safe aur reliable choice hai.",5,,TRUE
+lays-classic-salted,user_191,Simran Kaur,"Kuch chips kaale nikle packet me, quality check improve karo.",2,,TRUE
+haldirams-aloo-bhujia,user_192,Gaurav Singh,"Kabhi taste perfect hota hai kabhi average, consistency missing hai.",3,https://m.media-amazon.com/images/I/71gr36FV58L.jpg,FALSE
+amul-taaza-toned-milk,user_193,Alok Gupta,Packaging thodi aur strong honi chahiye but product okay hai.,3,,TRUE
+epigamia-greek-yogurt,user_194,Monika Sharma,"Flavor kaafi acha laga, definitely fir se order karungi.",5,,TRUE
+real-fruit-juice-mango,user_195,Tarun Verma,"Average product hai, market me better options available hai.",3,,FALSE
+maggi-2-minute-noodles,user_196,Rekha Bai,Kabhi kabhi oily lagta hai but phir bhi kha lete hain.,3,,TRUE
+dove-body-wash,user_197,Suresh Reddy,Daily use ke liye acha hai aur skin soft rehti hai.,4,,TRUE
+dairy-milk-silk,user_198,Pallavi Nair,"Is baar fresh nahi tha, taste thoda off lag raha tha.",1,,TRUE
+haldirams-aloo-bhujia,user_199,Rajesh Pawar,"Chai ke saath best combo hai, evening snack sorted.",5,,TRUE
+lays-classic-salted,user_200,Ananya Iyer,Simple snack hai but jab craving ho toh perfect lagta hai.,5,,TRUE
+lays-classic-salted,user_201,Priya Sharma,"Packet khola toh laga hawa zyada hai chips kam, taste acha hai but value questionable hai.",3,,TRUE
+lays-classic-salted,user_202,Rahul Verma,"Movie night ke liye perfect snack hai, crispy aur fresh mila iss baar.",5,,TRUE
+lays-classic-salted,user_203,Anjali Nair KU,"Taste okay aanu but packetil chips kurav aanu, not satisfied.",2,,FALSE
+lays-classic-salted,user_204,Ramesh Gowda,"Chips swalpa uppu jaasti ide, aadru crunch chennagide.",3,,TRUE
+lays-classic-salted,user_205,Karthik Iyer,"Wow amazing, paying for air more than chips, what an innovation ??",2,,FALSE
+haldirams-aloo-bhujia,user_206,Sneha Patil,"??? ??? ?? ???, ??????? ???? ?????.",5,,TRUE
+haldirams-aloo-bhujia,user_207,Amit Singh,"Thoda spicy hai, ghar pe sabko suit nahi kiya.",3,,TRUE
+haldirams-aloo-bhujia,user_208,Meena Krishnan,Taste nalla irukku but konjam oil jasthi irukku.,3,https://m.media-amazon.com/images/I/71gr36FV58L.jpg,FALSE
+haldirams-aloo-bhujia,user_209,Sunil Yadav,"Smell thodi off thi, shayad storage issue tha.",2,,TRUE
+haldirams-aloo-bhujia,user_210,Vikram Reddy,"Guests ke liye liya tha, sabko pasand aaya.",5,,TRUE
+amul-taaza-toned-milk,user_211,Divya Kulkarni,"Roz use karte hai, chai ke liye perfect consistency milti hai.",5,,TRUE
+amul-taaza-toned-milk,user_212,Ravi Shankar,"Oka packet leak ayindi delivery lo, konchem disappointing.",2,,TRUE
+amul-taaza-toned-milk,user_213,Shreya Banerjee,Price reasonable hai aur taste bhi theek hai.,4,,TRUE
+amul-taaza-toned-milk,user_214,Manoj Tiwari,"Kabhi fresh lagta hai kabhi nahi, consistency missing hai.",3,,FALSE
+amul-taaza-toned-milk,user_215,Suresh Pillai,"Milkinu smell undayirunnu, use cheyyan pattiyilla.",1,,TRUE
+epigamia-greek-yogurt,user_216,Komal Gupta,"Gym ke baad khane ke liye perfect hai, filling aur tasty dono hai.",5,https://m.media-amazon.com/images/I/51aKvShNPEL._SX522_.jpg,TRUE
+epigamia-greek-yogurt,user_217,Arun Menon,Taste okay aanu but konjam sour aanu.,3,https://m.media-amazon.com/images/I/61ND+xpJejL._SX522_.jpg,FALSE
+epigamia-greek-yogurt,user_218,Nisha Kapoor,Healthy option hai aur daily routine me add kiya hai.,5,https://m.media-amazon.com/images/I/61mI1wqGJjL._SX522_.jpg,TRUE
+epigamia-greek-yogurt,user_219,Harish Shetty,Swalpa expensive ide but quality chennagide.,4,https://m.media-amazon.com/images/I/61FEnwFThNL._SY250_.jpg,TRUE
+epigamia-greek-yogurt,user_220,Latha Iyer,"Consistency romba thick irundhudhu, strange feel.",2,https://m.media-amazon.com/images/I/71qcXKWyFLL._SY250_.jpg,TRUE
+real-fruit-juice-mango,user_221,Ankit Agarwal,"Garmi me chilled karke piya, kaafi refreshing laga.",5,,TRUE
+real-fruit-juice-mango,user_222,Pooja Deshmukh,"??? ??? ???, natural ???? ????.",3,,FALSE
+real-fruit-juice-mango,user_223,Rakesh Naidu,Flavor undi kani konchem artificial ga undi.,2,,TRUE
+real-fruit-juice-mango,user_224,Geeta Joshi,"Kids ko pasand aaya, lunch box me add kiya.",4,,TRUE
+real-fruit-juice-mango,user_225,Tarun Bansal,Healthy bolte hai but sugar level dekh ke doubt hota hai.,3,,TRUE
+maggi-2-minute-noodles,user_226,Kavya Nair,"2 minute noodles jo 10 minute lete hai, kya baat hai.",2,https://m.media-amazon.com/images/I/C1rXNwfZsGS.jpg,TRUE
+maggi-2-minute-noodles,user_227,Nitin Sharma,Late night hunger ke liye best option hai.,5,,TRUE
+maggi-2-minute-noodles,user_228,Rekha Devi,Masala pehle jaisa strong nahi lagta.,3,,TRUE
+maggi-2-minute-noodles,user_229,Santosh Patil,"?????????? ?????, ?????? ??? taste ???.",5,https://m.media-amazon.com/images/I/B1GLpC0CImS._SY250_.jpg,TRUE
+maggi-2-minute-noodles,user_230,Venu Gopal,"Health wise great choice obviously, bas daily mat khao.",2,,FALSE
+dove-body-wash,user_231,Ananya Reddy,Skin soft feel hoti hai aur dryness kam ho gayi.,5,,TRUE
+dove-body-wash,user_232,Prakash Gowda,"Fragrance swalpa light ide, nanige strong beku.",3,,FALSE
+dove-body-wash,user_233,Sonali Kulkarni,Moisturizing khup chan aahe pan price jasta vatato.,4,https://m.media-amazon.com/images/I/710pyut65HL.jpg,TRUE
+dove-body-wash,user_234,Rohit Nair,Dry skininu nannayi work cheyyunnu.,5,https://m.media-amazon.com/images/I/61XtLhD9EFL.jpg,TRUE
+dove-body-wash,user_235,Megha Sharma,"Bottle ka cap loose tha, thoda leak hua.",2,https://m.media-amazon.com/images/I/61-bo4C4VVL.jpg,TRUE
+dairy-milk-silk,user_236,Kunal Mehta,Itni smooth hai ki ek baar me khatam ho gaya.,5,,TRUE
+dairy-milk-silk,user_237,Asha Rani,Sweetness thodi zyada hai but taste acha hai.,3,,FALSE
+dairy-milk-silk,user_238,Vikash Yadav V,"Garmi me melt ho gaya, still tasty.",4,,TRUE
+dairy-milk-silk,user_239,Pallavi Desai B,Price ke hisaab se quantity kam lagti hai.,2,,TRUE
+dairy-milk-silk,user_240,Rajiv Menon a,Gift ke liye safe option hai.,5,,TRUE
+lays-classic-salted,user_301,Priya Sharma,"Packet khola toh chips kam aur hawa zyada thi, taste acha hai but thoda cheat jaisa feel hua.",3,,TRUE
+haldirams-aloo-bhujia,user_301,Priya Sharma,"Chai ke saath mast lagta hai, ghar pe sabko pasand aaya.",5,,TRUE
+dairy-milk-silk,user_301,Priya Sharma,Chocolate smooth hai but thodi zyada sweet lagti hai.,3,,FALSE
+maggi-2-minute-noodles,user_301,Priya Sharma,"Late night ke liye best option hai, quick and tasty.",5,,TRUE
+lays-classic-salted,user_302,Rahul Verma,"Wow great, paying for air instead of chips, very innovative packaging ??",2,,FALSE
+real-fruit-juice-mango,user_302,Rahul Verma,Taste acha hai but sugar thoda zyada hai.,3,,TRUE
+amul-taaza-toned-milk,user_302,Rahul Verma,"Daily chai ke liye use karta hu, consistent quality milti hai.",5,,TRUE
+dove-body-wash,user_302,Rahul Verma,"Fragrance mild hai, but skin soft feel hoti hai.",4,,TRUE
+epigamia-greek-yogurt,user_303,Anjali Nair,"Taste okay aanu but konjam sour aanu, ellarkum ishtam aavilla.",3,,FALSE
+dairy-milk-silk,user_303,Anjali Nair,"Chocolate valare smooth aanu, kazhichal niruthan pattilla.",5,,TRUE
+real-fruit-juice-mango,user_303,Anjali Nair,"Too sweet aanu, natural feel illa.",2,,TRUE
+maggi-2-minute-noodles,user_303,Anjali Nair,"Quick snack aanu, but healthy alla.",3,,FALSE
+haldirams-aloo-bhujia,user_304,Ramesh Gowda,"Chennagide taste, chai jothe super combination.",5,,TRUE
+lays-classic-salted,user_304,Ramesh Gowda,"Swalpa uppu jaasti ide, but crunch chennagide.",3,,TRUE
+amul-taaza-toned-milk,user_304,Ramesh Gowda,Milk quality ok ide but packaging swalpa weak ide.,3,,FALSE
+dove-body-wash,user_304,Ramesh Gowda,"Skin mele soft feel kodutte, daily use ge chennagide.",4,,TRUE
+epigamia-greek-yogurt,user_305,Karthik Iyer,"Consistency romba thick irukku, spoon nikkum pola irundhudhu.",2,,TRUE
+dairy-milk-silk,user_305,Karthik Iyer,"Chocolate romba smooth ah irukku, taste super.",5,,TRUE
+maggi-2-minute-noodles,user_305,Karthik Iyer,"2 minute nu solranga but 10 minutes edukum, seri da.",2,https://m.media-amazon.com/images/I/71KBqTWcjGL._SY250_.jpg,FALSE
+real-fruit-juice-mango,user_305,Karthik Iyer,Taste okay but konjam artificial feel aagudhu.,3,,TRUE
+haldirams-aloo-bhujia,user_306,Sneha Patil,"??? ??? ???, ??????? ??? ???? ?????.",5,https://m.media-amazon.com/images/I/61a2HI5mE8L._SL1024_.jpg,TRUE
+lays-classic-salted,user_306,Sneha Patil,?????????? ??? ????? ??? ????? ??? ?????.,2,,TRUE
+amul-taaza-toned-milk,user_306,Sneha Patil,"??? ??? ???, ??? ???????? ?????.",4,,TRUE
+dairy-milk-silk,user_306,Sneha Patil,??? ??? ??? ?? ?? ??? ???.,3,,FALSE
+real-fruit-juice-mango,user_307,Vikram Reddy,"Chilled ga thagite bagundi, summer ki perfect drink.",5,,TRUE
+maggi-2-minute-noodles,user_307,Vikram Reddy,"Masala konchem taggindi anipistundi, taste marindi.",3,,TRUE
+dove-body-wash,user_307,Vikram Reddy,"Skin soft ga untundi, fragrance kuda bagundi.",4,,TRUE
+lays-classic-salted,user_307,Vikram Reddy,"Packet lo chips kanna air ekkuva undi, disappointment.",2,,FALSE
+epigamia-greek-yogurt,user_308,Meena Krishnan,Healthy option irukku but taste konjam sour side la irukku.,3,https://m.media-amazon.com/images/I/71cO35HNLTL._SY250_.jpg,FALSE
+dairy-milk-silk,user_308,Meena Krishnan,Chocolate melt aagiduchu but taste nalla irundhudhu.,4,,TRUE
+haldirams-aloo-bhujia,user_308,Meena Krishnan,Crunchy irukku but oil konjam jasthi.,3,https://m.media-amazon.com/images/I/61a2HI5mE8L._SL1024_.jpg,TRUE
+amul-taaza-toned-milk,user_308,Meena Krishnan,Milk okay irukku but fresh illa nu feel aayiduchu.,2,,TRUE
+maggi-2-minute-noodles,user_309,Amit Singh,"Bachpan se favourite hai, abhi bhi same taste.",5,,TRUE
+lays-classic-salted,user_309,Amit Singh,Theek hai but price ke hisaab se quantity kam hai.,3,,FALSE
+real-fruit-juice-mango,user_309,Amit Singh,Juice acha hai but thoda zyada sweet lagta hai.,3,,TRUE
+dove-body-wash,user_309,Amit Singh,Skin smooth hoti hai use karne ke baad.,4,,TRUE
+dairy-milk-silk,user_310,Pooja Deshmukh,"??? ??? ?????? ???, ???? ?????.",5,,TRUE
+epigamia-greek-yogurt,user_310,Pooja Deshmukh,"???? ???? ?????, ?? ?????.",3,https://m.media-amazon.com/images/I/71qTqydaFdL.jpg,FALSE
+amul-taaza-toned-milk,user_310,Pooja Deshmukh,"????? ??????, quality ??? ???.",4,,TRUE
+haldirams-aloo-bhujia,user_310,Pooja Deshmukh,?? ??? ??? ?? ???? oily ?????.,3,https://m.media-amazon.com/images/I/61a2HI5mE8L._SL1024_.jpg,TRUE

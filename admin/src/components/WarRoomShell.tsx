@@ -110,17 +110,6 @@ export default function WarRoomShell({ children }: { children: React.ReactNode }
           })}
         </nav>
 
-        <div className="absolute bottom-3 left-0 w-full px-2">
-          <Link
-            href="/"
-            className={`flex items-center gap-2 px-3 py-2 rounded-lg text-xs text-muted hover:bg-surface-2 ${
-              collapsed ? "justify-center" : ""
-            }`}
-          >
-            <ChevronLeft className="w-3 h-3" />
-            {!collapsed && "Back to SwiftCart"}
-          </Link>
-        </div>
       </aside>
 
       <div className="flex-1 min-w-0 flex flex-col">
@@ -150,4 +139,3 @@ export default function WarRoomShell({ children }: { children: React.ReactNode }
     </div>
   );
 }
-
