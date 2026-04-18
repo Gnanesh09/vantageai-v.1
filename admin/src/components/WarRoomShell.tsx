@@ -28,6 +28,7 @@ const NAV = [
 
 function titleFor(pathname: string) {
   const item = NAV.find((n) => n.href === pathname);
+  if (!item && pathname.startsWith("/admin/products/")) return "Product Insights";
   return item?.label || "VantageAI War Room";
 }
 

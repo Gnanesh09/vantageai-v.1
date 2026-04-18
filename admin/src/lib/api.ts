@@ -39,6 +39,30 @@ function normalizeInsight(item: InsightItem): InsightItem {
   };
 }
 
+function normalizeDirective(item: DirectiveItem): DirectiveItem {
+  const payload = ((item.payload as Record<string, unknown>) || {}) as Record<string, unknown>;
+  const productFromPayload = payload.product_id;
+  const reviewFromPayload = payload.review_id;
+  const toStringArray = (v: unknown): string[] | undefined =>
+    Array.isArray(v) ? v.map((x) => String(x)) : undefined;
+
+  return {
+    ...item,
+    review_id: item.review_id || (typeof reviewFromPayload === "string" ? reviewFromPayload : undefined),
+    product_id: (item.product_id || (typeof productFromPayload === "string" ? productFromPayload : undefined)) as string | undefined,
+    title: item.title || (payload.title as string) || item.directive_type,
+    description: item.description || (payload.description as string) || (payload.reason as string),
+    action_text: item.action_text || (payload.action_text as string),
+    reason: item.reason || (payload.reason as string),
+    owner: item.owner || (payload.owner as string),
+    priority: item.priority || (payload.priority as string) || "info",
+    due_hours: item.due_hours || (payload.due_hours as number),
+    recommended_actions: item.recommended_actions || toStringArray(payload.recommended_actions),
+    message: item.message || (payload.message as string),
+    feature_keys: item.feature_keys || toStringArray(payload.feature_keys),
+  };
+}
+
 export async function getProducts(): Promise<BrandProduct[]> {
   const data = await request<BrandProduct[]>(`/brands/${BRAND_ID}/products`);
   return data || [];
@@ -78,7 +102,7 @@ export async function getDirectives(): Promise<{ directives: DirectiveItem[]; co
   const data = await request<{ directives: DirectiveItem[]; count: number }>(
     `/directives/?brand_id=${BRAND_ID}&status=pending`
   );
-  return { directives: data?.directives || [], count: data?.count || 0 };
+  return { directives: (data?.directives || []).map((d) => normalizeDirective(d)), count: data?.count || 0 };
 }
 
 export async function analyzeReview(payload: {

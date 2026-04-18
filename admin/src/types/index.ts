@@ -87,16 +87,22 @@ export interface DirectiveItem {
   id?: string;
   brand_id?: string;
   product_id?: string;
+  review_id?: string;
   directive_type?: string;
   title?: string;
   action_text?: string;
   description?: string;
   reason?: string;
-  owner?: string;
   priority?: string;
   status?: string;
   created_at?: string;
   due_at?: string;
+  owner?: string;
+  due_hours?: number;
+  recommended_actions?: string[];
+  message?: string;
+  feature_keys?: string[];
+  payload?: Record<string, unknown>;
   [key: string]: unknown;
 }
 

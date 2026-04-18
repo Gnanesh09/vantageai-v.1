@@ -75,9 +75,14 @@ export default function ProductsPage() {
             </div>
             <p className="text-xs text-muted mb-1">Top complaint: <span className="capitalize text-text">{p.topComplaint}</span></p>
             <p className="text-sm font-bold mb-3">Total RAR: ₹{inr(p.rar)}</p>
-            <Link href={`/admin/reviews?product=${p.id}`} className="text-xs text-accent hover:underline">
-              View Reviews →
-            </Link>
+            <div className="flex items-center gap-3 text-xs">
+              <Link href={`/admin/products/${p.id}`} className="text-accent hover:underline">
+                Product Insights →
+              </Link>
+              <Link href={`/admin/reviews?product=${p.id}`} className="text-muted hover:underline">
+                View Reviews
+              </Link>
+            </div>
           </article>
         ))}
       {loading &&

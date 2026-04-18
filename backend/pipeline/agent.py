@@ -1,12 +1,35 @@
 import json
+from datetime import datetime, timezone
 from typing import TypedDict, Optional
 from langgraph.graph import StateGraph, END
 from services.azure_nlp import analyse_review_with_gpt
 from services.azure_vision import analyse_image
 from utils.domain_config import build_system_prompt
 from utils.deduplication import is_duplicate
+from utils.input_quality import assess_text_quality
 from utils.rar_calculator import calculate_rar, calculate_churn_risk, calculate_svi
+from utils.directive_engine import build_actionable_directives
 from config import get_supabase
+
+
+def _parse_iso(ts: Optional[str]) -> Optional[datetime]:
+    if not ts:
+        return None
+    try:
+        cleaned = ts.replace("Z", "+00:00")
+        return datetime.fromisoformat(cleaned)
+    except Exception:
+        return None
+
+
+def _is_within_hours(created_at: Optional[str], hours: int) -> bool:
+    dt = _parse_iso(created_at)
+    if not dt:
+        return False
+    now = datetime.now(timezone.utc)
+    if dt.tzinfo is None:
+        dt = dt.replace(tzinfo=timezone.utc)
+    return (now - dt).total_seconds() <= hours * 3600
 
 class ReviewState(TypedDict):
     review_id: str
@@ -50,6 +73,19 @@ def node_deduplicate(state: ReviewState) -> ReviewState:
 def node_nlp_analysis(state: ReviewState) -> ReviewState:
     if state.get("is_duplicate"):
         return state
+    quality = assess_text_quality(state.get("raw_text", ""))
+    if not quality.get("is_valid"):
+        state["error"] = f"invalid_input:{quality.get('reason')}"
+        state["normalized_text"] = state.get("raw_text")
+        state["detected_language"] = "unknown"
+        state["is_sarcasm"] = False
+        state["is_ambiguous"] = True
+        state["is_bot"] = False
+        state["overall_sentiment"] = "neutral"
+        state["overall_score"] = 0.0
+        state["confidence_score"] = 0.0
+        state["feature_sentiments"] = {}
+        return state
     try:
         prompt = build_system_prompt(state["domain"], state.get("custom_attributes", []))
         result = analyse_review_with_gpt(state["raw_text"], prompt)
@@ -88,7 +124,7 @@ def node_vision_analysis(state: ReviewState) -> ReviewState:
     return state
 
 def node_financial_scoring(state: ReviewState) -> ReviewState:
-    if state.get("is_duplicate"):
+    if state.get("is_duplicate") or str(state.get("error", "")).startswith("invalid_input"):
         state["rar_score"] = 0.0
         state["churn_risk"] = 0.0
         state["svi_score"] = 0.0
@@ -154,7 +190,7 @@ def node_save_to_db(state: ReviewState) -> ReviewState:
             "visual_defect_detected": state.get("visual_defect_detected", False),
             "visual_defect_description": state.get("visual_defect_description"),
         }).execute()
-        if state.get("reviewer_id"):
+        if state.get("reviewer_id") and not str(state.get("error", "")).startswith("invalid_input"):
             db.table("customer_sentiment_history").insert({
                 "brand_id": state["brand_id"],
                 "reviewer_id": state["reviewer_id"],
@@ -166,57 +202,68 @@ def node_save_to_db(state: ReviewState) -> ReviewState:
     return state
 
 def node_auto_directives(state: ReviewState) -> ReviewState:
-    if state.get("is_duplicate") or state.get("is_bot"):
+    if state.get("is_duplicate") or str(state.get("error", "")).startswith("invalid_input"):
         return state
     try:
         db = get_supabase()
-        directives = []
-        if state.get("rar_score", 0) > 2000 or state.get("visual_defect_detected"):
-            directives.append({
+        generated = build_actionable_directives(state)
+        if not generated:
+            return state
+
+        existing = db.table("directives").select("id,directive_type,payload,status,created_at")\
+            .eq("brand_id", state["brand_id"]).eq("status", "pending")\
+            .order("created_at", desc=True).limit(200).execute()
+        existing_rows = existing.data or []
+
+        rows = []
+        for item in generated:
+            issue_signature = item.get("issue_signature")
+            dedup_hours = int(item.get("dedup_hours", 48) or 48)
+            is_duplicate_ticket = False
+            if issue_signature:
+                for ex in existing_rows:
+                    payload = ex.get("payload") or {}
+                    if payload.get("issue_signature") == issue_signature and _is_within_hours(ex.get("created_at"), dedup_hours):
+                        is_duplicate_ticket = True
+                        # Keep one active ticket per issue; update last-seen metadata.
+                        try:
+                            meta = dict(payload)
+                            meta["last_seen_at"] = datetime.now(timezone.utc).isoformat()
+                            meta["related_review_ids"] = list({*(meta.get("related_review_ids") or []), state["review_id"]})
+                            meta["occurrences"] = int(meta.get("occurrences", 1)) + 1
+                            db.table("directives").update({"payload": meta}).eq("id", ex.get("id")).execute()
+                        except Exception:
+                            pass
+                        break
+            if is_duplicate_ticket:
+                continue
+            rows.append({
                 "brand_id": state["brand_id"],
                 "review_id": state["review_id"],
-                "directive_type": "qa_alert",
+                "directive_type": item.get("directive_type", "action_required"),
                 "payload": {
-                    "message": f"Quality issue detected. RAR: ₹{state.get('rar_score')}",
-                    "features": list(state.get("feature_sentiments", {}).keys()),
-                    "visual_defect": state.get("visual_defect_detected"),
-                    "auto_draft": f"Dear QA Team, a critical quality complaint has been flagged. RAR Score: ₹{state.get('rar_score')}. Please investigate immediately."
-                },
-                "status": "pending"
-            })
-        if state.get("churn_risk", 0) > 0.65:
-            directives.append({
-                "brand_id": state["brand_id"],
-                "review_id": state["review_id"],
-                "directive_type": "churn_alert",
-                "payload": {
+                    **item,
+                    "review_id": state["review_id"],
                     "reviewer_id": state.get("reviewer_id"),
-                    "churn_probability": state.get("churn_risk"),
-                    "auto_draft": "Dear valued customer, we noticed your recent experience was not great. We would love to make it right."
+                    "overall_sentiment": state.get("overall_sentiment"),
+                    "confidence_score": state.get("confidence_score"),
+                    "rar_score": state.get("rar_score"),
+                    "churn_risk": state.get("churn_risk"),
+                    "visual_defect_detected": state.get("visual_defect_detected"),
+                    "feature_keys": list((state.get("feature_sentiments") or {}).keys()),
+                    "related_review_ids": [state["review_id"]],
+                    "occurrences": 1,
                 },
                 "status": "pending"
             })
-        dangerous_features = ["safety", "heating_issue", "missing_items"]
-        flagged = [f for f in dangerous_features if f in state.get("feature_sentiments", {})]
-        if flagged and state.get("confidence_score", 0) > 0.85:
-            directives.append({
-                "brand_id": state["brand_id"],
-                "review_id": state["review_id"],
-                "directive_type": "pr_crisis",
-                "payload": {
-                    "features_flagged": flagged,
-                    "message": f"URGENT: Safety/critical issue detected. Features: {flagged}"
-                },
-                "status": "pending"
-            })
-        if directives:
-            db.table("directives").insert(directives).execute()
+        if rows:
+            db.table("directives").insert(rows).execute()
     except Exception as e:
         state["error"] = f"Directive error: {str(e)}"
     return state
 
 def node_trend_detection(state: ReviewState) -> ReviewState:
-    if state.get("is_duplicate") or not state.get("product_id"):
+    if state.get("is_duplicate") or str(state.get("error", "")).startswith("invalid_input") or not state.get("product_id"):
         return state
     try:
         db = get_supabase()

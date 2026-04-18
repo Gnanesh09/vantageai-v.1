@@ -11,5 +11,5 @@ export const PRODUCT_MAP = {
 
 export function productNameById(productId?: string): string {
   if (!productId) return "Unknown Product";
-  return PRODUCT_MAP[productId as keyof typeof PRODUCT_MAP]?.name || "Unknown Product";
+  return PRODUCT_MAP[productId as keyof typeof PRODUCT_MAP]?.name || productId;
 }

@@ -171,6 +171,22 @@ export function generateDirectives(insights: InsightItem[]): DirectiveItem[] {
       });
     }
 
+    const total = insights.filter((x) => x.product_id === productId).length || 1;
+    const botPct = (bots / total) * 100;
+    if (botPct >= 15) {
+      out.push({
+        id: `bot-surge-${productId}`,
+        product_id: productId,
+        directive_type: "bot_activity",
+        title: `Bot Surge: ${productNameById(productId)} suspicious pattern rising`,
+        description: `${botPct.toFixed(1)}% of reviews flagged as bot-like`,
+        action_text: "Run moderation sweep and exclude suspicious entries from KPI rollups.",
+        owner: "Trust & Safety",
+        priority: "critical",
+        status: "pending",
+      });
+    }
+
     const sarcasm = insights.filter((x) => x.product_id === productId && x.is_sarcasm).length;
     if (sarcasm > 1) {
       out.push({
@@ -178,6 +194,21 @@ export function generateDirectives(insights: InsightItem[]): DirectiveItem[] {
         product_id: productId,
         title: `Sarcasm Detected: ${productNameById(productId)} quality check needed`,
         priority: "info",
+        status: "pending",
+      });
+    }
+
+    const lowConfidence = insights.filter((x) => x.product_id === productId && (x.confidence_score || 0) < 0.45).length;
+    if (lowConfidence >= 3) {
+      out.push({
+        id: `lowconf-${productId}`,
+        product_id: productId,
+        directive_type: "low_confidence",
+        title: `Model Confidence Watch: ${productNameById(productId)}`,
+        description: `${lowConfidence} low-confidence analyses need human validation`,
+        action_text: "Send flagged reviews to analyst queue before operational actions.",
+        owner: "Data Analyst",
+        priority: "warning",
         status: "pending",
       });
     }
@@ -195,12 +226,43 @@ export function generateDirectives(insights: InsightItem[]): DirectiveItem[] {
       });
     }
 
+    const severeNegative = insights.filter(
+      (x) => x.product_id === productId && ((x.overall_score || 0) <= -0.75 || (x.star_rating || 5) <= 2)
+    ).length;
+    if (severeNegative >= 2) {
+      out.push({
+        id: `cx-${productId}`,
+        product_id: productId,
+        directive_type: "cx_recovery",
+        title: `Customer Recovery Needed: ${productNameById(productId)}`,
+        description: `${severeNegative} severe dissatisfaction reviews detected`,
+        action_text: "Trigger refund/replacement workflow for impacted customers.",
+        owner: "Customer Support",
+        priority: "critical",
+        status: "pending",
+      });
+    }
+
     if (g.rar > 5000) {
       out.push({
         id: `rar-${productId}`,
         product_id: productId,
         title: `Revenue at Risk: ₹${inr(g.rar)} from ${productNameById(productId)} complaints`,
         priority: g.rar > 20000 ? "critical" : "warning",
+        status: "pending",
+      });
+    }
+
+    if (g.sentiments.negative / Math.max(1, g.reviews) > 0.45) {
+      out.push({
+        id: `sentiment-crisis-${productId}`,
+        product_id: productId,
+        directive_type: "sentiment_crisis",
+        title: `Sentiment Crisis: ${productNameById(productId)} negative rate is critical`,
+        description: `Negative share ${(100 * g.sentiments.negative / Math.max(1, g.reviews)).toFixed(1)}%`,
+        action_text: "Open cross-functional war-room and deploy 7-day corrective plan.",
+        owner: "War Room Lead",
+        priority: "critical",
         status: "pending",
       });
     }
@@ -242,4 +304,120 @@ export function toCsv(rows: InsightItem[]) {
       .join(",")
   );
   return [header.join(","), ...lines].join("\n");
+}
+
+const FEATURE_ACTIONS: Record<string, string[]> = {
+  packaging: [
+    "Run packaging QA audit on latest batch and tighten seal validation.",
+    "Increase dispatch-side random QC for this SKU."
+  ],
+  delivery: [
+    "Audit delayed/damaged deliveries by zone and fix last-mile SOP.",
+    "Add rider handling checklist for fragile items."
+  ],
+  taste: [
+    "Validate supplier lot quality and perform batch tasting test.",
+    "Pause low-scoring lot and switch to verified batch."
+  ],
+  freshness: [
+    "Enforce stricter FIFO checks in dark stores.",
+    "Increase freshness audits for the next 7 days."
+  ],
+  quality: [
+    "Open QA CAPA with owner and 24h root-cause deadline.",
+    "Track complaint recurrence daily until stabilized."
+  ],
+  missing_items: [
+    "Audit pick-pack flow and enable double-scan for this SKU.",
+    "Monitor short-shipment incidents daily."
+  ],
+};
+
+export type ProductTrendAction = {
+  productId: string;
+  feature: string;
+  direction: "worsening" | "improving" | "stable";
+  severity: "critical" | "warning" | "info";
+  currentNegativePct: number;
+  previousNegativePct: number;
+  delta: number;
+  mentions: number;
+  actions: string[];
+};
+
+export function computeProductTrendActions(insights: InsightItem[]): ProductTrendAction[] {
+  const byProduct: Record<string, InsightItem[]> = {};
+  for (const row of insights) {
+    if (!row.product_id) continue;
+    if (!byProduct[row.product_id]) byProduct[row.product_id] = [];
+    byProduct[row.product_id].push(row);
+  }
+
+  const out: ProductTrendAction[] = [];
+  for (const [productId, rows] of Object.entries(byProduct)) {
+    const sorted = [...rows].sort((a, b) => new Date(a.created_at || 0).getTime() - new Date(b.created_at || 0).getTime());
+    if (sorted.length < 8) continue;
+
+    const mid = Math.floor(sorted.length / 2);
+    const oldHalf = sorted.slice(0, mid);
+    const newHalf = sorted.slice(mid);
+
+    const featureKeys = Array.from(
+      new Set(sorted.flatMap((r) => Object.keys(r.feature_sentiments || {})))
+    );
+
+    for (const feature of featureKeys) {
+      const oldMentions = oldHalf.filter((r) => r.feature_sentiments?.[feature]).length;
+      const newMentions = newHalf.filter((r) => r.feature_sentiments?.[feature]).length;
+      const mentions = oldMentions + newMentions;
+      if (mentions < 3) continue;
+
+      const oldNeg = oldHalf.filter((r) => {
+        const f = r.feature_sentiments?.[feature];
+        return f && (f.sentiment === "negative" || f.sentiment === "mixed");
+      }).length;
+      const newNeg = newHalf.filter((r) => {
+        const f = r.feature_sentiments?.[feature];
+        return f && (f.sentiment === "negative" || f.sentiment === "mixed");
+      }).length;
+
+      const oldPct = oldNeg / Math.max(oldHalf.length, 1);
+      const newPct = newNeg / Math.max(newHalf.length, 1);
+      const delta = newPct - oldPct;
+
+      let direction: ProductTrendAction["direction"] = "stable";
+      if (delta >= 0.06) direction = "worsening";
+      if (delta <= -0.06) direction = "improving";
+
+      let severity: ProductTrendAction["severity"] = "info";
+      if (direction === "worsening" && (newPct >= 0.35 || delta >= 0.15)) severity = "critical";
+      else if (direction === "worsening" && (newPct >= 0.2 || delta >= 0.08)) severity = "warning";
+
+      if (direction === "stable" && newPct < 0.15) continue;
+
+      const defaultActions = [
+        `Investigate ${feature} complaints for ${productNameById(productId)} within 24h.`,
+        "Assign product owner and track daily until trend improves."
+      ];
+
+      out.push({
+        productId,
+        feature,
+        direction,
+        severity,
+        currentNegativePct: newPct * 100,
+        previousNegativePct: oldPct * 100,
+        delta: delta * 100,
+        mentions,
+        actions: FEATURE_ACTIONS[feature] || defaultActions,
+      });
+    }
+  }
+
+  return out.sort((a, b) => {
+    const sev = { critical: 3, warning: 2, info: 1 };
+    const s = sev[b.severity] - sev[a.severity];
+    if (s !== 0) return s;
+    return b.delta - a.delta;
+  });
 }
